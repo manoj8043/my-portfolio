@@ -1,4 +1,4 @@
-import bg1 from '../assets/imgs/Bg-1.webp';
+import bg1 from '../assets/imgs/BG-3.webp';
 import Contact from '../components/Contact';
 import About from '../components/About';
 import Projects from '../components/Projects';
