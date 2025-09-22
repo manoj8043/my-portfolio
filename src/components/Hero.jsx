@@ -92,7 +92,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
             onClick={() =>
               window.open(
-                "/Manoj_Kumar_Chinthala_Resume_MERN_DEVELOPER.pdf",
+                "/Manoj_Kumar_Chinthala_Resume_Web_DEVELOPER.pdf",
                 "_blank"
               )
             }
