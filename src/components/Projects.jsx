@@ -10,10 +10,10 @@ function Projects() {
 
   const projects = [
     {
-      title: "QRResto – QR-based Restaurant Ordering",
-      desc: "QR-powered ordering where customers browse the menu and order from their phone. Real-time updates, auth, responsive UI (MERN).",
+      title: "Spice Palace – Restaurant Ordering Platform",
+      desc: "Menu ordering where customers browse the menu and order from their Device. Real-time updates, auth, responsive UI (MERN).",
       img: qrRestroImg,
-      link: "https://qr-menu-app-xi.vercel.app/",
+      link: "https://spice-palace-restaurant-ordering-pl.vercel.app/",
       code: "https://github.com/manoj8043/QResto-QR-based-Restaurant-Ordering-Platform",
       category: "fullstack",
       tech: ["React", "Node.js", "MongoDB", "Express", "QR Code"],
@@ -29,6 +29,16 @@ function Projects() {
       tech: ["React", "Node.js", "MongoDB", "JWT", "CRUD"],
       featured: true,
     },
+    // {
+    //   title: "Portfolio Website",
+    //   desc: "Fully responsive and animated portfolio built with React + Tailwind, smooth nav & project showcase.",
+    //   img: project1Img,
+    //   link: "#home",
+    //   code: "https://github.com/manoj8043/my-portfolio",
+    //   category: "frontend",
+    //   tech: ["React", "Tailwind CSS", "Framer Motion", "Responsive"],
+    //   featured: false,
+    // },
   ];
 
   const internships = [
