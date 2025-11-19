@@ -10,9 +10,10 @@ import {
   Send,
   CheckCircle,
 } from "lucide-react";
-import bg5 from "../assets/imgs/BG-5.webp";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 function Contact() {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -84,11 +85,10 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen w-full bg-cover bg-center py-24 px-4 relative"
-      style={{ backgroundImage: `url(${bg5})` }}
+      className="min-h-screen w-full py-24 px-4 relative bg-gradient-to-b from-sky-100 via-blue-50 to-white"
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-green-900/30" />
+      {/* Overlay - Winter Theme */}
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-100/50 via-blue-50/80 to-white/90" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
@@ -99,9 +99,9 @@ function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">Get In Touch</h2>
-          <div className="w-24 h-1 bg-cyan-400 mx-auto rounded-full mb-6" />
-          <p className="text-white/80 text-lg max-w-3xl mx-auto">
+          <h2 className="text-5xl font-bold text-slate-800 mb-4">Get In Touch</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto rounded-full mb-6" />
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto font-medium">
             For questions or collaboration, feel free to reach out.
           </p>
         </motion.div>
@@ -114,9 +114,9 @@ function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-                <Send className="w-6 h-6 text-cyan-400" />
+            <div className="glass-card p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 bg-white/70 backdrop-blur-xl border border-blue-200/50 shadow-xl">
+              <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center gap-3">
+                <Send className="w-6 h-6 text-blue-500" />
                 Send Me a Message
               </h3>
 
@@ -129,11 +129,11 @@ function Contact() {
                     exit={{ opacity: 0, y: -20 }}
                     className="text-center py-8"
                   >
-                    <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                    <h4 className="text-xl font-semibold text-white mb-2">
+                    <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                    <h4 className="text-xl font-semibold text-slate-800 mb-2">
                       Message Sent!
                     </h4>
-                    <p className="text-white/70">
+                    <p className="text-slate-600">
                       Thank you for reaching out. I'll get back to you soon!
                     </p>
                   </motion.div>
@@ -176,7 +176,7 @@ function Contact() {
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 px-6 rounded-lg font-semibold shadow-lg flex items-center justify-center gap-2 transition-all duration-300"
+                      className="w-full bg-gradient-to-r from-blue-500 to-sky-400 hover:from-blue-600 hover:to-sky-500 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all duration-300"
                       aria-label="Send message"
                     >
                       {isSubmitting ? (
@@ -206,8 +206,8 @@ function Contact() {
             className="space-y-8"
           >
             {/* Contact Info */}
-            <div className="glass-card p-6 rounded-2xl hover:shadow-xl transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-white mb-6">
+            <div className="glass-card p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 bg-white/70 backdrop-blur-xl border border-blue-200/50 shadow-xl">
+              <h3 className="text-2xl font-semibold text-slate-800 mb-6">
                 Contact Information
               </h3>
               <div className="space-y-4">
@@ -221,16 +221,16 @@ function Contact() {
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300 group"
+                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-50 transition-all duration-300 group"
                   >
                     <div
-                      className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}
+                      className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}
                     >
                       <info.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-white/60 text-sm">{info.label}</p>
-                      <p className="text-white font-medium">{info.value}</p>
+                      <p className="text-slate-500 text-sm">{info.label}</p>
+                      <p className="text-slate-800 font-medium">{info.value}</p>
                     </div>
                   </motion.a>
                 ))}
@@ -238,8 +238,8 @@ function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="glass-card p-6 rounded-2xl hover:shadow-xl transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-white mb-6">
+            <div className="glass-card p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 bg-white/70 backdrop-blur-xl border border-blue-200/50 shadow-xl">
+              <h3 className="text-2xl font-semibold text-slate-800 mb-6">
                 Connect With Me
               </h3>
               <div className="flex gap-4">
@@ -255,7 +255,7 @@ function Contact() {
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.1, y: -5 }}
-                    className={`w-14 h-14 bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white/80 ${social.color} transition-all duration-300 hover:bg-white/20 hover:border-cyan-400/30`}
+                    className={`w-14 h-14 bg-white/70 backdrop-blur-md border-2 border-blue-300/50 rounded-xl flex items-center justify-center text-slate-700 ${social.color} transition-all duration-300 hover:bg-white/90 hover:border-blue-500 shadow-lg`}
                   >
                     <social.icon className="w-6 h-6" />
                   </motion.a>
@@ -274,9 +274,9 @@ function Contact() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="glass-card p-8 rounded-2xl max-w-4xl mx-auto hover:shadow-xl transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-white mb-4">Have a question?</h3>
-            <p className="text-white/80 mb-6">
+          <div className="glass-card p-8 rounded-2xl max-w-4xl mx-auto hover:shadow-2xl transition-all duration-300 bg-white/70 backdrop-blur-xl border border-blue-200/50 shadow-xl">
+            <h3 className="text-2xl font-semibold text-slate-800 mb-4">Have a question?</h3>
+            <p className="text-slate-600 mb-6 font-medium">
               Whether you have a project in mind or just want to chat about
               technology, I'd love to hear from you. Let's create something
               amazing together!
@@ -289,7 +289,7 @@ function Contact() {
                   .getElementById("contact")
                   .scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-blue-500 to-sky-400 hover:from-blue-600 hover:to-sky-500 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               aria-label="Scroll to contact form"
             >
               Send a message
@@ -313,7 +313,7 @@ const InputField = ({
   <div>
     <label
       htmlFor={name}
-      className="block text-white/80 text-sm font-medium mb-2"
+      className="block text-slate-700 text-sm font-medium mb-2"
     >
       {label} *
     </label>
@@ -324,7 +324,7 @@ const InputField = ({
       value={value}
       onChange={onChange}
       required
-      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                      className="w-full px-4 py-3 bg-white/80 backdrop-blur-sm border-2 border-blue-300/50 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-300/30 transition-all duration-300"
       placeholder={placeholder}
     />
   </div>
@@ -335,7 +335,7 @@ const TextareaField = ({ label, name, value, onChange, placeholder }) => (
   <div>
     <label
       htmlFor={name}
-      className="block text-white/80 text-sm font-medium mb-2"
+      className="block text-slate-700 text-sm font-medium mb-2"
     >
       {label} *
     </label>
@@ -347,7 +347,7 @@ const TextareaField = ({ label, name, value, onChange, placeholder }) => (
       required
       rows={5}
       placeholder={placeholder}
-      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
+      className="w-full px-4 py-3 bg-white/80 backdrop-blur-sm border-2 border-blue-300/50 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-300/30 transition-all duration-300 resize-none"
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) e.preventDefault();
       }}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Download, ExternalLink } from "lucide-react";
-import bg1 from "../assets/imgs/BG-1.webp";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 const Hero = () => {
+  const { theme } = useTheme();
   const [text, setText] = useState("");
   const fullText = "I build clean, fast, and scalable web apps.";
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,11 +28,13 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full bg-cover bg-center flex items-center overflow-hidden"
-      style={{ backgroundImage: `url(${bg1})` }}
+      className="relative min-h-screen w-full flex items-center overflow-hidden bg-gradient-to-b from-sky-200 via-blue-100 to-white"
     >
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-cyan-900/30" />
+      {/* Winter Sky Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-300/50 via-blue-100/80 to-white/90" />
+      
+      {/* Frosted Glass Overlay */}
+      <div className="absolute inset-0 backdrop-blur-[2px] bg-white/10" />
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
@@ -41,8 +44,8 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
         >
-          Hi, I’m{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          Hi, I'm{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-700 via-blue-600 to-sky-500 drop-shadow-lg">
             Manoj
           </span>
           .
@@ -53,7 +56,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-3xl font-medium text-cyan-300 mb-6 h-12 flex items-center justify-center"
+          className="text-xl md:text-3xl font-medium text-slate-700 mb-6 h-12 flex items-center justify-center"
         >
           {text}
           <span className="animate-pulse ml-1">|</span>
@@ -64,10 +67,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
+          className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8 font-medium"
         >
-          Full-stack developer focused on React, Node.js, and Python. I build
-          performant UIs and reliable APIs.
+          Full-stack software developer skilled in React, Node.js, Python, Java, Spring Boot, SQL, AI/ML, and AWS. Building robust applications across the full stack.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -81,7 +83,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection("projects")}
-            className="group bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+            className="group bg-white/80 backdrop-blur-md border-2 border-blue-300/50 text-slate-700 px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:bg-white/90 hover:border-blue-400 transition-all duration-300 flex items-center gap-2 hover:scale-105"
           >
             View My Work
             <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -96,7 +98,7 @@ const Hero = () => {
                 "_blank"
               )
             }
-            className="group border border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold backdrop-blur-sm transition-all duration-300 flex items-center gap-2"
+            className="group border-2 border-slate-400/50 bg-white/40 backdrop-blur-md text-slate-700 hover:bg-white/60 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold shadow-lg transition-all duration-300 flex items-center gap-2 hover:scale-105"
           >
             View Resume
             <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
@@ -110,10 +112,10 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-wrap justify-center gap-3 mb-8"
         >
-          {["React", "Node.js", "Python", "MongoDB", "Tailwind"].map((tech) => (
+          {["React", "Java", "Python", "Spring Boot", "AWS", "SQL", "AI/ML"].map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm text-white/80"
+              className="px-4 py-2 bg-white/70 backdrop-blur-md border border-blue-300/50 rounded-full text-sm text-slate-700 font-medium shadow-sm hover:bg-white/90 hover:shadow-md transition-all"
             >
               {tech}
             </span>
@@ -132,7 +134,7 @@ const Hero = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           onClick={() => scrollToSection("about")}
-          className="text-white/60 hover:text-white transition-colors"
+          className="text-slate-600 hover:text-slate-800 transition-colors drop-shadow-lg"
         >
           <ChevronDown className="w-6 h-6" />
         </motion.button>

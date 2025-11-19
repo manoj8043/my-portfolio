@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 function Navbar() {
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
@@ -55,21 +57,21 @@ function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-black/70 backdrop-blur-sm shadow-sm"
-          : "bg-black/30 backdrop-blur-xs"
+          ? "bg-white/90 backdrop-blur-lg shadow-lg border-b border-blue-200/50"
+          : "bg-white/60 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <motion.h1
           whileHover={{ scale: 1.05 }}
-          className="text-2xl font-bold cursor-pointer text-white"
+          className="text-2xl font-bold cursor-pointer text-slate-800"
           onClick={() => scrollToSection("home")}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-blue-400">
             Manoj
           </span>
-          <span className="text-white"> Kumar</span>
+          <span className="text-slate-700"> Kumar</span>
         </motion.h1>
 
         {/* Desktop Nav */}
@@ -84,15 +86,15 @@ function Navbar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`relative cursor-pointer font-medium py-2 transition-all duration-300 ${
                   activeSection === item.id
-                    ? "text-cyan-400"
-                    : "text-white/80 hover:text-white"
+                    ? "text-blue-600"
+                    : "text-slate-600 hover:text-blue-500"
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 rounded-full"
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 rounded-full"
                   />
                 )}
               </button>
@@ -103,7 +105,7 @@ function Navbar() {
         {/* Mobile Menu Button */}
         <motion.button
           whileTap={{ scale: 0.95 }}
-          className="md:hidden text-white p-2"
+          className="md:hidden text-slate-700 p-2"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Navigation Menu"
         >
@@ -119,7 +121,7 @@ function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-black/80 backdrop-blur-sm"
+            className="md:hidden overflow-hidden bg-white/95 backdrop-blur-lg border-b border-blue-100"
           >
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
@@ -129,8 +131,8 @@ function Navbar() {
                   onClick={() => scrollToSection(item.id)}
                   className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
                     activeSection === item.id
-                      ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30"
-                      : "text-white/80 hover:text-white hover:bg-white/10"
+                      ? "bg-blue-100 text-blue-600 border border-blue-300"
+                      : "text-slate-600 hover:text-blue-600 hover:bg-blue-50"
                   }`}
                 >
                   {item.label}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Calendar, Code, Globe } from "lucide-react";
-import bg3 from "../assets/imgs/BG-3.webp";
 import project1Img from "../assets/imgs/Project1.png";
 import qrRestroImg from "../assets/imgs/QRRestro.png";
 
@@ -91,10 +90,9 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen w-full py-24 px-4 relative"
-      style={{ backgroundImage: `url(${bg3})` }}
+      className="min-h-screen w-full py-24 px-4 relative bg-gradient-to-b from-sky-100 via-blue-50 to-white"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-purple-900/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-100/50 via-blue-50/80 to-white/90" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
@@ -105,11 +103,11 @@ function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-5xl font-bold text-slate-800 mb-4">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-cyan-400 mx-auto rounded-full mb-6" />
-          <p className="text-white/80 text-lg max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto rounded-full mb-6" />
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto font-medium">
             Selected projects demonstrating core skills and practices.
           </p>
         </Motion.div>
@@ -131,8 +129,8 @@ function Projects() {
               aria-pressed={activeFilter === filter.id}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeFilter === filter.id
-                  ? "bg-cyan-500 text-white shadow-lg"
-                  : "bg-white/10 text-white/80 hover:bg-white/20 border border-white/20"
+                  ? "bg-gradient-to-r from-blue-500 to-sky-400 text-white shadow-lg shadow-blue-400/40"
+                  : "bg-white/70 text-slate-700 hover:bg-white/90 border-2 border-blue-300/50 backdrop-blur-md"
               }`}
             >
               {filter.label}
@@ -160,7 +158,7 @@ function Projects() {
                   scale: 1.02,
                   boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
                 }}
-                className="relative group rounded-2xl overflow-hidden bg-gradient-to-br from-black/60 to-black/30"
+                className="relative group rounded-2xl overflow-hidden bg-white/80 backdrop-blur-xl border border-blue-200/50 shadow-xl hover:shadow-2xl transition-all"
               >
                 <img
                   src={project.img}
@@ -169,15 +167,15 @@ function Projects() {
                   loading="lazy"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-white/70 text-sm mb-4">{project.desc}</p>
+                  <p className="text-slate-600 text-sm mb-4">{project.desc}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs"
+                        className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium border border-blue-300/50"
                       >
                         {tech}
                       </span>
@@ -188,7 +186,7 @@ function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white text-center py-2 rounded-lg text-sm font-medium transition"
+                      className="flex-1 bg-gradient-to-r from-blue-500 to-sky-400 hover:from-blue-600 hover:to-sky-500 text-white text-center py-2 rounded-lg text-sm font-medium transition shadow-lg hover:shadow-xl"
                     >
                       <Globe className="w-4 h-4 inline mr-1" />
                       Live Demo
@@ -198,7 +196,7 @@ function Projects() {
                         href={project.code}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 border border-white/20 text-white text-center py-2 rounded-lg hover:bg-white/10 transition text-sm font-medium"
+                        className="flex-1 border-2 border-blue-300/50 bg-white/50 backdrop-blur-sm text-slate-700 text-center py-2 rounded-lg hover:bg-white/80 transition text-sm font-medium hover:border-blue-400"
                       >
                         <Github className="w-4 h-4 inline mr-1" />
                         Code
@@ -219,7 +217,7 @@ function Projects() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold text-white mb-12">
+          <h2 className="text-4xl font-bold text-slate-800 mb-12">
             Professional Experience
           </h2>
 
@@ -228,30 +226,30 @@ function Projects() {
               <Motion.div
                 key={idx}
                 whileHover={{ scale: 1.03 }}
-                className="glass-card bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/20 flex flex-col gap-4"
+                className="glass-card bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-blue-200/50 shadow-xl hover:shadow-2xl flex flex-col gap-4 transition-all"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl">
+                  <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-r from-blue-400 to-sky-400 text-white rounded-xl shadow-lg">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div className="text-left">
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-lg font-semibold text-slate-800">
                       {item.role}
                     </h3>
-                    <p className="text-cyan-300 text-sm font-medium">
+                    <p className="text-blue-600 text-sm font-medium">
                       {item.org}
                     </p>
-                    <p className="text-white/60 text-sm flex items-center gap-1">
+                    <p className="text-slate-500 text-sm flex items-center gap-1">
                       <Calendar className="w-4 h-4 inline" /> {item.period}
                     </p>
                   </div>
                 </div>
-                <p className="text-white/80 text-sm">{item.desc}</p>
+                <p className="text-slate-600 text-sm">{item.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {item.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 bg-white/10 text-white/70 rounded-md text-xs border border-white/20"
+                      className="px-3 py-1 bg-blue-100 text-blue-700 rounded-md text-xs border border-blue-300/50 font-medium"
                     >
                       {tech}
                     </span>

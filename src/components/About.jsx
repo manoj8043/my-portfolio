@@ -1,7 +1,7 @@
 import React from "react";
 import { motion as Motion } from "framer-motion";
 import { Calendar, MapPin, GraduationCap, Award, Code, Heart } from "lucide-react";
-import bg2 from "../assets/imgs/BG-2.webp";
+import { useTheme } from "../context/ThemeContext.jsx";
 import btechImg from "../assets/imgs/btechImg.jpg";
 import interImg from "../assets/imgs/interImg.png";
 import sscImg from "../assets/imgs/sscImg.jpg";
@@ -45,13 +45,13 @@ const interests = [
 ];
 
 function About() {
+  const { theme } = useTheme();
   return (
     <section
       id="about"
-      className="min-h-screen w-full py-24 px-4 relative"
-      style={{ backgroundImage: `url(${bg2})` }}
+      className="min-h-screen w-full py-24 px-4 relative bg-gradient-to-b from-white via-blue-50 to-sky-100"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-blue-900/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-100/50 via-blue-50/80 to-white/90" />
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <Motion.div
@@ -61,9 +61,9 @@ function About() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">About Me</h2>
-          <div className="w-24 h-1 bg-cyan-400 mx-auto rounded-full mb-4" />
-          <p className="text-white/80 text-lg max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-5xl font-bold text-slate-800 mb-4">About Me</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto rounded-full mb-4" />
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed font-medium">
             Full-stack developer focused on building maintainable, accessible, and performant web applications.
           </p>
         </Motion.div>
@@ -79,13 +79,13 @@ function About() {
             className="space-y-6"
           >
             {/* Who I am + Profile Pic side-by-side */}
-            <div className="glass-card p-6">
+            <div className="glass-card p-6 bg-white/70 backdrop-blur-xl border border-blue-200/50 shadow-xl hover:shadow-2xl transition-all">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <Motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.6 }}
-                  className="w-40 h-40 rounded-2xl overflow-hidden border-4 border-cyan-400/40 shadow-lg flex-shrink-0"
+                  className="w-40 h-40 rounded-2xl overflow-hidden border-4 border-blue-300/60 shadow-xl flex-shrink-0 ring-2 ring-blue-200/30"
                 >
                   <img
                     src={myPic}
@@ -95,13 +95,13 @@ function About() {
                   />
                 </Motion.div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-white mb-3 flex items-center gap-3">
-                    <Code className="w-6 h-6 text-cyan-400" /> Who I Am
+                  <h3 className="text-2xl font-semibold text-slate-800 mb-3 flex items-center gap-3">
+                    <Code className="w-6 h-6 text-blue-500" /> Who I Am
                   </h3>
-                  <p className="text-white/80 leading-relaxed mb-2">
+                  <p className="text-slate-600 leading-relaxed mb-2">
                     I'm Manoj Kumar, a full-stack developer working with modern web technologies. My work centers on React, Node.js, and Python.
                   </p>
-                  <p className="text-white/80 leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed">
                     Experience across AI/ML and Android helps me approach problems from multiple perspectives and choose practical solutions.
                   </p>
                 </div>
@@ -109,14 +109,14 @@ function About() {
             </div>
 
             {/* Focus Areas */}
-            <div className="glass-card p-6">
-              <h4 className="text-xl font-semibold text-white mb-4">Focus Areas</h4>
+            <div className="glass-card p-6 bg-white/70 backdrop-blur-xl border border-blue-200/50 shadow-xl hover:shadow-2xl transition-all">
+              <h4 className="text-xl font-semibold text-slate-800 mb-4">Focus Areas</h4>
               <div className="grid grid-cols-2 gap-4">
                 {interests.map((int, idx) => (
                   <Motion.div
                     key={idx}
-                    whileHover={{ scale: 1.05, color: "#22d3ee" }}
-                    className="flex items-center gap-3 text-white/80 transition-colors"
+                    whileHover={{ scale: 1.05, color: "#7dd3fc" }}
+                    className="flex items-center gap-3 text-slate-600 transition-colors hover:text-blue-600"
                   >
                     <int.icon className="w-5 h-5" />
                     <span className="text-sm">{int.text}</span>
@@ -134,9 +134,9 @@ function About() {
             viewport={{ once: true }}
             className="space-y-6 lg:ml-4"
           >
-            <div className="glass-card p-6">
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-                <GraduationCap className="w-6 h-6 text-cyan-400" /> Education Journey
+            <div className="glass-card p-6 bg-white/70 backdrop-blur-xl border border-blue-200/50 shadow-xl hover:shadow-2xl transition-all">
+              <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center gap-3">
+                <GraduationCap className="w-6 h-6 text-blue-500" /> Education Journey
               </h3>
               <div className="space-y-4">
                 {education.map((edu, idx) => (
@@ -149,7 +149,7 @@ function About() {
                     className="flex gap-4 items-start"
                   >
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-sky-400 rounded-full flex items-center justify-center shadow-lg">
                         <Calendar className="w-6 h-6 text-white" />
                       </div>
                     </div>
@@ -158,15 +158,15 @@ function About() {
                         <img
                           src={edu.image}
                           alt={edu.degree}
-                          className="w-12 h-12 object-cover rounded-full border-2 border-cyan-400/30"
+                          className="w-12 h-12 object-cover rounded-full border-2 border-blue-300/30"
                         />
                         <div>
-                          <h4 className="text-lg font-semibold text-white">{edu.degree}</h4>
-                          <p className="text-cyan-300 text-sm">{edu.institution}</p>
+                          <h4 className="text-lg font-semibold text-slate-800">{edu.degree}</h4>
+                          <p className="text-blue-600 text-sm font-medium">{edu.institution}</p>
                         </div>
                       </div>
-                      <p className="text-white/60 text-sm mb-1">{edu.period} | {edu.score}</p>
-                      <p className="text-white/70 text-sm leading-relaxed">{edu.description}</p>
+                      <p className="text-slate-500 text-sm mb-1">{edu.period} | {edu.score}</p>
+                      <p className="text-slate-600 text-sm leading-relaxed">{edu.description}</p>
                     </div>
                   </Motion.div>
                 ))}

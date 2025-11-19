@@ -1,4 +1,4 @@
-/* App.css */
+/* App.css - Complete Winter Theme Redesign */
 body {
   @apply font-sans;
 }
@@ -8,6 +8,84 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(to bottom, #000000, #1a1a1a, #111111);
-  color: white;
+  background: linear-gradient(to bottom, #e0f2fe, #bae6fd, #ffffff);
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* Glass card effect for winter theme - Frosted Glass */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Scrollbar styling for winter theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0f2fe;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #60a5fa, #38bdf8);
+  border-radius: 10px;
+  border: 2px solid #e0f2fe;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #3b82f6, #0ea5e9);
+}
+
+/* Winter theme animations - Snow shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.winter-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(191, 219, 254, 0.3),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 4s infinite;
+}
+
+/* Frost effect */
+@keyframes frost {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.frost-effect {
+  animation: frost 3s ease-in-out infinite;
+}
+
+/* Selection color for winter theme */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #1e293b;
+}
+
+::-moz-selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #1e293b;
 }
