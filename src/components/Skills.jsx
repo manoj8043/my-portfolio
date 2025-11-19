@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Palette, Brain, Award } from "lucide-react";
+import {
+  Code,
+  Database,
+  Palette,
+  Brain,
+  Award,
+  Cloud,
+  Users,
+} from "lucide-react";
 import bg4 from "../assets/imgs/BG-4.webp";
 import pythonCert from "../assets/imgs/pythonCert.png";
 import cCert from "../assets/imgs/cCert.png";
@@ -29,73 +37,99 @@ const certifications = [
 
 const skillCategories = [
   {
-    name: "Frontend Development",
+    name: "Frontend & Web",
     icon: Palette,
     skills: [
-      { name: "React.js", level: 90, color: "from-blue-500 to-cyan-500" },
+      { name: "React.js / Next.js", level: 90, color: "from-blue-500 to-cyan-500" },
       {
         name: "JavaScript (ES6+)",
-        level: 85,
+        level: 87,
         color: "from-yellow-500 to-orange-500",
       },
       { name: "HTML & CSS", level: 95, color: "from-orange-500 to-red-500" },
-      { name: "Tailwind CSS", level: 88, color: "from-cyan-500 to-blue-500" },
+      { name: "Tailwind CSS", level: 90, color: "from-cyan-500 to-blue-500" },
       {
-        name: "Responsive Design",
+        name: "Responsive UI/UX",
         level: 92,
         color: "from-green-500 to-emerald-500",
       },
     ],
   },
   {
-    name: "Backend Development",
+    name: "Backend & Platforms",
     icon: Code,
     skills: [
-      { name: "Node.js", level: 80, color: "from-green-500 to-emerald-500" },
-      { name: "Express.js", level: 75, color: "from-gray-500 to-slate-500" },
-      { name: "Python", level: 70, color: "from-blue-500 to-indigo-500" },
-      { name: "RESTful APIs", level: 85, color: "from-purple-500 to-pink-500" },
-      { name: "Authentication", level: 78, color: "from-red-500 to-pink-500" },
+      {
+        name: "Node.js & Express",
+        level: 82,
+        color: "from-green-500 to-emerald-500",
+      },
+      { name: "Java", level: 80, color: "from-orange-500 to-red-500" },
+      { name: "Spring Boot", level: 76, color: "from-rose-500 to-pink-500" },
+      { name: "Python (APIs, automation)", level: 78, color: "from-blue-500 to-indigo-500" },
+      { name: "Secure REST/GraphQL APIs", level: 86, color: "from-purple-500 to-pink-500" },
     ],
   },
   {
-    name: "Database & Tools",
+    name: "Databases & Data",
     icon: Database,
     skills: [
-      { name: "MongoDB", level: 75, color: "from-green-500 to-emerald-500" },
-      { name: "Git & GitHub", level: 85, color: "from-gray-500 to-slate-500" },
-      { name: "Postman", level: 80, color: "from-orange-500 to-red-500" },
-      { name: "VS Code", level: 90, color: "from-blue-500 to-indigo-500" },
-      { name: "Deployment", level: 70, color: "from-purple-500 to-indigo-500" },
+      { name: "SQL Fundamentals", level: 85, color: "from-yellow-500 to-amber-500" },
+      { name: "MySQL", level: 82, color: "from-blue-500 to-indigo-500" },
+      { name: "MongoDB", level: 78, color: "from-green-500 to-emerald-500" },
+      { name: "Data Modeling & ORM", level: 76, color: "from-purple-500 to-indigo-500" },
+      { name: "Analytics & Reporting", level: 74, color: "from-cyan-500 to-blue-500" },
     ],
   },
   {
-    name: "Soft Skills",
+    name: "Cloud & DevOps",
+    icon: Cloud,
+    skills: [
+      { name: "AWS (EC2, S3, Lambda)", level: 78, color: "from-orange-500 to-yellow-500" },
+      { name: "CI/CD (GitHub Actions)", level: 72, color: "from-blue-500 to-cyan-500" },
+      { name: "Docker & Containers", level: 70, color: "from-emerald-500 to-green-500" },
+      { name: "Serverless Deployments", level: 74, color: "from-purple-500 to-pink-500" },
+      { name: "Monitoring & Observability", level: 68, color: "from-gray-500 to-slate-500" },
+    ],
+  },
+  {
+    name: "AI/ML & Intelligent Apps",
     icon: Brain,
+    skills: [
+      { name: "Machine Learning", level: 75, color: "from-cyan-500 to-blue-500" },
+      { name: "AI/ML Pipelines", level: 70, color: "from-indigo-500 to-purple-500" },
+      { name: "Data Analysis (NumPy/Pandas)", level: 78, color: "from-green-500 to-emerald-500" },
+      { name: "Model Deployment", level: 65, color: "from-pink-500 to-rose-500" },
+      { name: "Generative AI & LLMs", level: 60, color: "from-orange-500 to-red-500" },
+    ],
+  },
+  {
+    name: "Professional Skills",
+    icon: Users,
     skills: [
       {
         name: "Problem Solving",
-        level: 88,
+        level: 90,
         color: "from-cyan-500 to-blue-500",
       },
       {
         name: "Team Collaboration",
-        level: 85,
+        level: 88,
         color: "from-green-500 to-emerald-500",
       },
       {
         name: "Communication",
-        level: 82,
+        level: 85,
         color: "from-purple-500 to-pink-500",
       },
       {
         name: "Time Management",
-        level: 80,
+        level: 82,
         color: "from-orange-500 to-yellow-500",
       },
       {
         name: "Learning Agility",
-        level: 90,
+        level: 92,
         color: "from-indigo-500 to-purple-500",
       },
     ],
@@ -125,8 +159,9 @@ function Skills() {
           </h2>
           <div className="w-24 h-1 bg-cyan-400 mx-auto rounded-full mb-6" />
           <p className="text-white/80 text-lg max-w-3xl mx-auto">
-            Here are the technologies and skills I've worked with. I'm
-            constantly learning and expanding my skill set.
+            Full-stack software developer experienced across web, backend,
+            cloud, data, and AI/ML ecosystems—always leveling up to build
+            production-grade products end-to-end.
           </p>
         </motion.div>
 
